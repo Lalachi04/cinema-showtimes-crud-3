@@ -1,0 +1,107 @@
+/* Cinema Showtimes - black and blue theme */
+:root {
+  --black: #04060b;
+  --panel: #0a1020;
+  --panel-2: #0f1830;
+  --line: #1b2a4a;
+  --ink: #e8efff;
+  --ink-soft: #8ea3cc;
+  --blue: #2f7bff;
+  --blue-dark: #1d5fd8;
+  --blue-glow: rgba(47, 123, 255, 0.35);
+  --danger: #ff6b7a;
+  --ok: #4ade80;
+  --radius: 10px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--black);
+  background-image: radial-gradient(900px 400px at 85% -10%, rgba(47, 123, 255, 0.18), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, #000 0%, #07122b 100%);
+  padding: 28px 20px 24px;
+  border-bottom: 2px solid var(--blue);
+  box-shadow: 0 6px 30px var(--blue-glow);
+}
+header h1 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+header p { margin: 6px 0 0; color: var(--ink-soft); max-width: 60ch; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; display: grid; gap: 24px; }
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+h2 { margin: 0 0 14px; font-family: "Bricolage Grotesque", system-ui, sans-serif; font-size: 1.3rem; }
+
+form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+label { display: grid; gap: 4px; font-weight: 600; font-size: 0.9rem; color: var(--ink-soft); }
+
+input, select {
+  font: inherit;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink);
+}
+input::placeholder { color: #5b6e94; }
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 4px var(--blue-glow);
+}
+
+.actions { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: wrap; }
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.primary { background: var(--blue); color: #fff; }
+.primary:hover { background: var(--blue-dark); }
+.ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+.ghost:hover { background: var(--panel-2); border-color: var(--blue); }
+.small { padding: 5px 10px; font-size: 0.85rem; }
+.danger { background: transparent; color: var(--danger); border-color: var(--danger); }
+.danger:hover { background: rgba(255, 107, 122, 0.12); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 0.85rem; color: var(--ink-soft); background: var(--panel-2); }
+tbody tr:hover { background: rgba(47, 123, 255, 0.07); }
+td.title { font-weight: 600; white-space: normal; }
+td.row-actions { display: flex; gap: 6px; }
+.seats-low { color: var(--danger); font-weight: 600; }
+
+#message { min-height: 1.4em; font-weight: 600; margin: 14px 0 0; }
+#message.ok { color: var(--ok); }
+#message.err { color: var(--danger); }
+.empty { color: var(--ink-soft); padding: 14px 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  button { transition: background 0.15s, border-color 0.15s; }
+}

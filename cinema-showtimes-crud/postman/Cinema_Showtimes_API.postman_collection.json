@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Cinema Showtimes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET all showtimes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/showtimes",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "showtimes"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET one showtime",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/showtimes/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "showtimes",
+            "{{id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST create showtime",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/showtimes",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "showtimes"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"movie_title\": \"Wicked\",\n  \"genre\": \"Drama\",\n  \"hall\": \"Hall 2\",\n  \"show_date\": \"2026-10-27\",\n  \"show_time\": \"19:30\",\n  \"ticket_price\": 95,\n  \"available_seats\": 90\n}"
+        }
+      }
+    },
+    {
+      "name": "PUT update showtime",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/showtimes/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "showtimes",
+            "{{id}}"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ticket_price\": 85,\n  \"available_seats\": 70\n}"
+        }
+      }
+    },
+    {
+      "name": "DELETE showtime",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/showtimes/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "showtimes",
+            "{{id}}"
+          ]
+        }
+      }
+    }
+  ]
+}
